@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import Login from './user/Login'
+import Logout from './user/Logout'
+import UserBar from './user/UserBar'
+import PostList from './post/PostList'
+import CreatePost from './post/CreatePost'
+
+export default function App() {
+  const user = 'Raj Narayanan'
+  const posts = [
+    { title: 'React Hooks', content: 'The greatest thing since sliced bread!', author: 'Daniel Bugl' },
+    { title: 'Using React Fragments', content: 'Keeping the DOMtree clean!', author: 'Daniel Bugl' }
+    ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div style={{ padding: 8 }}>
+      <UserBar/>
+      <CreatePost user={user}/>
+      <PostList posts={posts} />
+      </div>
   );
-}
 
-export default App;
+}
